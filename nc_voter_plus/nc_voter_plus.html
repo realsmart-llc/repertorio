@@ -1,0 +1,87 @@
+<head>
+  <title>NC Voter Plus Report for
+  <span id="address"></span></title>
+</head>
+
+<div class="container-fluid">
+  <div class="row report-title-row">
+    <div class="col-md-12 col-sm-12 centered">
+      <h3 class="page-subtitle">NC Voter Plus Report</h3>
+			<div id="point">
+	      <h3 class="page-title">
+					<span class="page-title" id="radius">5</span> mile radius
+					<span class="page-title" class="address"></span>
+				</h3>
+			</div>
+			<div id="polygon">
+				<h3 class="page-title">
+					<span class="page-title" class="address"></span>
+				</h3>
+			</div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row vertical-row-padding">
+    <div class="col-md-3 col-sm-3 centered">
+      <h3 class="description">Total Population</h3>
+      <h2 id="total-population" class="number-subtitle"></h2>
+    </div>
+    <div class="col-md-3 col-sm-3 centered">
+      <h3 class="description">Median Household Income</h3>
+      <h2  id="median-household-income" class="number-subtitle"></h2>
+    </div>
+    <div class="col-md-3 col-sm-3 centered">
+      <h3 class="description">Median Home Value</h3>
+      <h2 id="median-home-value" class="number-subtitle"></h2>
+    </div>
+    <div class="col-md-3 col-sm-3 centered">
+      <h3 class="description">Number of Households</h3>
+      <h2 id="number-of-homes" class="number-subtitle"></h2>
+    </div>
+  </div>
+  <div class="row section-title-row">
+    <div class="col-md-6 col-sm-6 centered">
+      <h3 class="subtitle">Race</h3>
+    </div>
+    <div class="col-md-6 col-sm-6 centered">
+      <h3 class="subtitle">Age Breakdowns</h3>
+    </div>
+  </div>
+  <div class="row vertical-row-padding">
+    <div class="col-md-3 col-sm-3">
+      <div id="chart1"></div>
+    </div>
+    <div class="col-md-3 col-sm-3">
+      <div id="chart2"></div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div id="chart3"></div>
+    </div>
+  </div>
+  <div class="row section-title-row">
+    <div class="col-md-6 col-sm-6 centered">
+      <h3 class="subtitle">Political Affiliations</h3>
+    </div>
+    <div class="col-md-6 col-sm-6 centered">
+      <h3 class="subtitle">Education</h3>
+    </div>
+  </div>
+  <div class="row vertical-row-padding">
+    <div class="col-md-6 col-sm-6">
+      <div id="chart4"></div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div id="chart5"></div>
+    </div>
+  </div>
+</div>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+
+<link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/general_demographic_report.css"/>
+<link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/shared-styles/report-print.css"/>

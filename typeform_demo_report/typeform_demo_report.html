@@ -1,0 +1,67 @@
+<head>
+  <title></title>
+
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/print.css">
+  <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/reports.css">
+  <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/bright.css">
+</head>
+
+<body>
+  <div class="container container-print">
+    <div class="row report-title-row">
+      <div class="promo col-sm-6 hidden-print pull-right">
+        <p class="description-white">Make more reports at <a href="http://cartoscope.io/" target="_blank">cartoscope.io</a></p>
+      </div>
+      <div class="promo col-print-5 col-print-offset-6 visible-print-inline">
+        <p class="description-white">Make more reports at cartoscope.io </p>
+      </div>
+      <div class="col-sm-4 col-print-4">
+        <img src="https://s3.amazonaws.com/cartoscope-assets/assets/TheGridWorxLogo_White.png" class="img-responsive" style="height: 120px;"/>
+      </div>
+      <div class="col-sm-4 col-print-4 text-center">
+        <h3 class="page-subtitle">Ecosystem Survey </h3>
+        <h1 class="page-title">Fayetteville</h1>
+        <button class="hidden-print" onclick="printReport()">print me</button>
+      </div>
+      <div class="col-sm-12 hidden-print">
+        <h5 class="description-white share-this-report">Share this report</h5>
+        <ul class="share-buttons">
+           <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+
+           <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+
+            <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fcartoscope.io&title=&summary=&source=http%3A%2F%2Fcartoscope.io" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
+
+            <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-lg" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
+        </ul>
+        <br />
+      </div>
+    </div>
+    <div class="row vertical-row-padding">
+      <div class="col-sm-4 col-print-12">
+        <table class="table table-bordered table-responsive">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody id="rows">
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-6 col-print-10">
+        <div class="" id="map"></div>
+      </div>
+      <!--<div class="col-sm-2 col-print-2">
+        <h4 class="description-title">ECOSYSTEM DESCRIPTION </h4>
+        <p class="description">
+        </p>
+      </div>-->
+    </div>
+    <div class="row vertical-row-padding">
+
+    </div>
+  </div>
+</body>
