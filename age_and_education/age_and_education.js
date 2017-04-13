@@ -14,7 +14,9 @@ window.printReport = function(){
   setTimeout(function(){window.print()}, 1000)
 }
 
-//
+var type = data["researchSpecification"]["geoJSON"]["geometry"]["type"];
+var address = data["researchSpecification"]["geoJSON"]["properties"]["address"];
+var coordinates = data["researchSpecification"]["geoJSON"]["geometry"]["coordinates"];
 
 var array = []
 for(var key in data["age"]["male"]){
@@ -27,7 +29,6 @@ for(var key in data["age"]["female"]){
   array2.push(data["age"]["female"][key])
 }
 array2.unshift("female")
-
 
 var chart1 = c3.generate({
 	bindto: '#chart1',
@@ -44,9 +45,6 @@ var chart1 = c3.generate({
     categories: Object.keys(data["age"]["male"])
   }},
 });
-
-//
-
 
 var chart2 = c3.generate({
   bindto: '#chart2',
@@ -76,35 +74,39 @@ var chart2 = c3.generate({
 });
 
 
-$("title").html(`Age and Education Report for ${data["address"]}`);
-$(".address").html(data["address"]);
+$("title").html(`Age and Education Report for ${address}`);
+$(".address").html(address);
 
 if(data.type == "polygon"){
   $("#point").hide();
 }else{
-  $("#radius").html(data["radius"]);
+  var radius = data["researchSpecification"]["geoJSON"]["geometry"]["radius"];
+ 
+  $("#radius").html(data["researchSpecification"]["geoJSON"]["geometry"]["radius"]);
   $("#polygon").hide()
 }
 
 var zoomLevel = 13;
 var map = L.map('map').setView([35.7796, -78.6382], zoomLevel);
-if(data.geometry.radius > 15000){
+
+
+if(radius > 15000){
   zoomLevel = 10;
-}else if(data.geometry.radius > 8000){
+}else if(radius > 8000){
   zoomLevel = 11;
-}else if(data.geometry.radius > 3000){
+}else if(radius > 3000){
   zoomLevel = 12;
-}else if(data.geometry.radius > 1000){
+}else if(radius > 1000){
   zoomLevel = 13;
 }
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-if(data.geometry.type == "Point"){
-  var marker = L.marker([data.geometry.coordinates[1], data.geometry.coordinates[0]]).addTo(map);
-  var shapeLayer = L.circle([data.geometry.coordinates[1], data.geometry.coordinates[0]], data.geometry.radius).addTo(map);
+if(type == "Point"){
+  var marker = L.marker([coordinates[1], coordinates[0]]).addTo(map);
+  var shapeLayer = L.circle([coordinates[1], coordinates[0]], radius).addTo(map);
   map.setView(marker.getLatLng(), zoomLevel);
-}else if(data.geometry.type == "polygon" || data.geometry.type == "Polygon"){
-  var shapeLayer = L.geoJSON(data.geometry.geometry).addTo(map);
+}else if(type == "polygon" || type == "Polygon"){
+  var shapeLayer = L.geoJSON(data["researchSpecification"]["geoJSON"]["geometry"]).addTo(map);
   map.fitBounds(shapeLayer.getBounds());
 }
