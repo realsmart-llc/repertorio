@@ -1,9 +1,16 @@
 <head>
-  <title>Longitudinal Median Income Report for
-  <span id="address"></span></title>
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/print.css">
-  <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/reports.css">
+  <link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/print.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/reports.css" rel="stylesheet">
+  <script type="text/javascript" src="fixture_data.js"></script>
 </head>
 
 <div class="container container-print">
@@ -94,4 +101,6 @@
       <div id="map" class="map map-home" style="height: 200px;"></div>
     </div>
   </div>
+
+    <script type="text/javascript" src="longitudinal_median_income.js"></script>
 </div>

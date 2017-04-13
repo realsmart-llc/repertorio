@@ -14,9 +14,9 @@ window.printReport = function(){
   setTimeout(function(){window.print()}, 1000)
 }
 
-var type = data["researchSpecification"]["geoJSON"]["geometry"]["type"];
-var address = data["researchSpecification"]["geoJSON"]["properties"]["address"];
-var coordinates = data["researchSpecification"]["geoJSON"]["geometry"]["coordinates"];
+var type = data["reportSpecification"]["geoJSON"]["geometry"]["type"];
+var address = data["reportSpecification"]["geoJSON"]["properties"]["address"];
+var coordinates = data["reportSpecification"]["geoJSON"]["geometry"]["coordinates"];
 
 var array = []
 for(var key in data["age"]["male"]){
@@ -80,9 +80,9 @@ $(".address").html(address);
 if(data.type == "polygon"){
   $("#point").hide();
 }else{
-  var radius = data["researchSpecification"]["geoJSON"]["geometry"]["radius"];
- 
-  $("#radius").html(data["researchSpecification"]["geoJSON"]["geometry"]["radius"]);
+  var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
+
+  $("#radius").html(data["reportSpecification"]["geoJSON"]["geometry"]["radius"]);
   $("#polygon").hide()
 }
 
@@ -107,6 +107,6 @@ if(type == "Point"){
   var shapeLayer = L.circle([coordinates[1], coordinates[0]], radius).addTo(map);
   map.setView(marker.getLatLng(), zoomLevel);
 }else if(type == "polygon" || type == "Polygon"){
-  var shapeLayer = L.geoJSON(data["researchSpecification"]["geoJSON"]["geometry"]).addTo(map);
+  var shapeLayer = L.geoJSON(data["reportSpecification"]["geoJSON"]["geometry"]).addTo(map);
   map.fitBounds(shapeLayer.getBounds());
 }
