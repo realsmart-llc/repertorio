@@ -1,5 +1,5 @@
 if(!data){
-    var data = {
+    var xdata = {
         "education": {
             "sum": {
                 "Total": 43.02980621432539,
@@ -135,7 +135,7 @@ if(!data){
             geoJSON:     {
                 "type": "Feature",
                 "properties" : {
-                    "address" : "204 Windrift Drive, Gibsonville, NC"
+                    "address" : "205 Windrift Drive, Gibsonville, NC"
                 },
                 "geometry": {
                     "type": "Polygon",
