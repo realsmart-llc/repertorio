@@ -76,13 +76,12 @@ var chart2 = c3.generate({
 
 $("title").html(`Age and Education Report for ${address}`);
 $(".address").html(address);
+var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
 if(data.type == "polygon"){
   $("#point").hide();
 }else{
-  var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
-
-  $("#radius").html(data["reportSpecification"]["geoJSON"]["geometry"]["radius"]);
+  $("#radius").html(Math.floor(radius/1600));
   $("#polygon").hide()
 }
 

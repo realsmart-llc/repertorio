@@ -13,14 +13,14 @@ window.printReport = function(){
 var type = data["reportSpecification"]["geoJSON"]["geometry"]["type"];
 var address = data["reportSpecification"]["geoJSON"]["properties"]["address"];
 var coordinates = data["reportSpecification"]["geoJSON"]["geometry"]["coordinates"];
-//
+var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
 $("title").html(`Longitudinal Median Income Report for ${data["address"]}`);
 $(".address").html(address);
 if(data.type == "polygon"){
   $("#point").hide();
 }else{
-  $("#radius").html(data["radius"]);
+  $("#radius").html(Math.floor(radius/1600));
   $("#polygon").hide()
 }
 
