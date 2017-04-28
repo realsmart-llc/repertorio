@@ -13,15 +13,13 @@ window.printReport = function(){
 var type = data["reportSpecification"]["geoJSON"]["geometry"]["type"];
 var address = data["reportSpecification"]["geoJSON"]["properties"]["address"];
 var coordinates = data["reportSpecification"]["geoJSON"]["geometry"]["coordinates"];
-//
+var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
 $(".address").html(address);
 if(data.type == "polygon"){
   $("#point").hide();
 }else{
-  var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
-
-  $("#radius").html(data["reportSpecification"]["geoJSON"]["geometry"]["radius"]);
+  $("#radius").html(Math.floor(radius/1600));
   $("#polygon").hide()
 }
 
