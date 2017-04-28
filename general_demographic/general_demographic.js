@@ -166,13 +166,11 @@ var chart5 = c3.generate({
 //
 $("title").html(`General Demographic Report for ${data["address"]}`);
 $(".address").html(address);
-
+var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
 if(data.type == "polygon"){
   $("#point").hide();
 }else{
-  var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
-    
   $("#radius").html(Math.floor(radius/1600));
   $("#polygon").hide()
 }
