@@ -175,7 +175,7 @@ if(data.type == "polygon"){
 
   radius = Math.floor(radius/1600)
     
-  $("#radius").html(data["reportSpecification"]["geoJSON"]["geometry"]["radius"]);
+  $("#radius").html(radius);
   $("#polygon").hide()
 }
 
