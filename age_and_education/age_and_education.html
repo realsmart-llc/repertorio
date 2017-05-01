@@ -16,42 +16,39 @@
 <body>
 
   <div class="container container-print">
-    <div class="row report-title-row">
+    <div class="row vertical-row-padding">
       <div class="promo col-sm-6 hidden-print pull-right">
-        <p class="description-white">Make more reports at <a href="http://cartoscope.io/" target="_blank">cartoscope.io</a></p>
+        <p class="description-dark">Make more reports at <a href="http://cartoscope.io/" target="_blank">cartoscope.io</a></p>
       </div>
       <div class="promo col-print-5 col-print-offset-6 visible-print-inline">
-        <p class="description-white">Make more reports at cartoscope.io </p>
+        <p class="description-dark share-this-report">Make more reports at cartoscope.io </p>
       </div>
-      <div class="col-sm-12 col-print-12 centered">
-        <div class="col-sm-12 coll-print-12 centered">
-          <h3 class="page-subtitle">Age and Education Report</h3>
-          <div id="point">
-            <h3 class="page-title">
-              <span class="page-title" id="radius">5</span> mile radius
-              <span class="address page-title"></span>
-            </h3>
-          </div>
-          <div id="polygon">
-            <h3 class="page-title">
-              <span class="address page-title"></span>
-            </h3>
-          </div>
-          <button class="btn btn-mc hidden-print" onclick="printReport()">Print this Report</button>
+      <div class="col-sm-8 col-sm-offset-2 col-print-12">
+        <h1 class="report-page-title underline-top-left">Age and Education Report</h1>
+        <div id="point">
+          <h1 class="report-page-address underline underline-bottom-right">
+            <span class="report-page-address" id="radius">2</span> mile radius |
+            <span class="address report-page-address"></span>
+          </h1>
+        </div>
+        <div id="polygon">
+          <h3 class="report-page-address">
+            <span class="address report-page-address"></span>
+          </h3>
         </div>
       </div>
-      <div class="col-sm-12 hidden-print">
-        <h5 class="description-white share-this-report">Share this report</h5>
+      <div class="col-sm-2 hidden-print">
+        <h5 class="description-dark share-this-report">Share this report</h5>
         <ul class="share-buttons">
-          <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+           <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
 
-          <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+           <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
 
             <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fcartoscope.io&title=&summary=&source=http%3A%2F%2Fcartoscope.io" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
 
             <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-lg" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
         </ul>
-        <br />
+        <button class="btn btn-mc hidden-print" onclick="printReport()">Print this Report</button>
       </div>
     </div>
     <div class="row vertical-row-padding">
@@ -61,7 +58,7 @@
         </p>
       </div>
     </div>
-    <div class="row section-title-row hidden-sm hidden-xs">
+    <div class="row hidden-sm hidden-xs">
       <div class="col-sm-3 col-sm-offset-1 col-print-6 centered">
         <h3 class="subtitle">Age</h3>
       </div>
@@ -69,7 +66,7 @@
         <h3 class="subtitle">Education</h3>
       </div>
     </div>
-    <div class="row section-title-row hidden-md hidden-lg hidden-print">
+    <div class="row hidden-md hidden-lg hidden-print">
       <div class="col-sm-12 centered">
         <h3 class="subtitle">Age</h3>
       </div>
@@ -79,7 +76,7 @@
         <div id="chart1"></div>
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12 col-print-6">
-        <div class="row section-title-row hidden-md hidden-lg hidden-print">
+        <div class="row hidden-md hidden-lg hidden-print">
           <div class="col-sm-12 centered">
             <h3 class="subtitle">Education</h3>
           </div>
