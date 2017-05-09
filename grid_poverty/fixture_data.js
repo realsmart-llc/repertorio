@@ -7,7 +7,7 @@ var data = pointData = {
 		"Single Mom with Children 5-17": 7,
 		"Families Below Poverty Line Without Children 5-17": 7,
 		"Families Below Poverty Line With Children 5-17": 7
-	}, 
+	},
     "reportSpecification" : {
         reportName: "grid_poverty",
         geoJSON: {
@@ -16,12 +16,15 @@ var data = pointData = {
                 coordinates: [-79.523149,36.095723],
                 radius: 1600,
                 type: "Point"
-            }
+            },
+						properties: {
+				      "address" : "204 Windrift Drive, Gibsonville, NC"
+				     }
         }
     }
 }
 
-var data = polygonData = {
+var xdata = polygonData = {
 	"poverty": {
 		"Total Families": 1127,
 		"Total Families Below Poverty Line": 14,
@@ -30,7 +33,7 @@ var data = polygonData = {
 		"Single Mom with Children 5-17": 7,
 		"Families Below Poverty Line Without Children 5-17": 7,
 		"Families Below Poverty Line With Children 5-17": 7
-	}, 
+	},
     "reportSpecification" : {
         reportName: "grid_poverty",
         geoJSON:     {

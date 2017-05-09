@@ -1,35 +1,48 @@
 <head>
   <title></title>
-  <script src="https://s3.amazonaws.com/cartoscope-assets/report-javascript/printreport.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/print.css">
-  <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/reports.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/print.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/reports.css" rel="stylesheet">
+  <script type="text/javascript" src="fixture_data.js"></script>
 
   <style>
 
   </style>
 </head>
 
+
+
 <div class="container container-print">
-  <div class="row report-title-row">
+  <div class="row vertical-row-padding">
     <div class="promo col-sm-6 hidden-print pull-right">
-      <p class="description-white">Make more reports at <a href="http://cartoscope.io/" target="_blank">cartoscope.io</a></p>
+      <p class="description-dark">Make more reports at <a href="http://cartoscope.io/" target="_blank">cartoscope.io</a></p>
     </div>
     <div class="promo col-print-5 col-print-offset-6 visible-print-inline">
-      <p class="description-white share-this-report">Make more reports at cartoscope.io </p>
+      <p class="description-dark share-this-report">Make more reports at cartoscope.io </p>
     </div>
-    <div class="col-sm-12 col-print-12 centered">
-      <h2 class="page-subtitle">General Demographic Report</h2>
+    <div class="col-sm-8 col-sm-offset-2 col-print-12">
+      <h1 class="report-page-title underline-top-left">General Demographic Report</h1>
       <div id="point">
-        <h1 class="page-title">
-          <span class="page-title" id="radius">5</span> mile radius
-          <span class="address page-title"></span>
+        <h1 class="report-page-address underline underline-bottom-right">
+          <span class="report-page-address" id="radius">2</span> mile radius |
+          <span class="address report-page-address"></span>
         </h1>
       </div>
-      <button class="btn btn-mc hidden-print" onclick="printReport()">Print this Report</button>
+      <div id="polygon">
+        <h3 class="report-page-address">
+          <span class="address report-page-address"></span>
+        </h3>
+      </div>
     </div>
-    <div class="col-sm-12 hidden-print">
-      <h5 class="description-white share-this-report">Share this report</h5>
+    <div class="col-sm-2 hidden-print">
+      <h5 class="description-dark share-this-report">Share this report</h5>
       <ul class="share-buttons">
          <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
 
@@ -39,7 +52,7 @@
 
           <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-lg" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
       </ul>
-      <br />
+      <button class="btn btn-mc hidden-print" onclick="printReport()">Print this Report</button>
     </div>
   </div>
   <div class="row vertical-row-padding">
@@ -60,20 +73,68 @@
       <h3 id="number-of-homes" class="number-subtitle"></h3>
     </div>
   </div>
-  <div class="row section-title-row hidden-sm hidden-xs">
-    <div class="col-sm-3 col-sm-offset-2 col-print-3 col-print-offset-3 centered">
-      <h3 class="subtitle">Race</h3>
+
+  <div class="row ">
+    <div class="col-sm-8 col-print-8" style="border-right: 4px solid #e3e3e3; border-top: 4px solid #e3e3e3; ">
+      <div class="row vertical-row-padding">
+        <div class="col-sm-12 col-print-12 centered">
+          <h3 class="subtitle">Race</h3>
+        </div>
+      </div>
+      <div class="row vertical-row-padding">
+        <div class="col-sm-6 col-md-6 col-print-6">
+          <div id="chart1"></div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-print-6">
+          <div id="chart2"></div>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-3 col-sm-offset-3 col-print-3 col-print-offset-3 centered">
-      <h3 class="subtitle">Age Breakdowns</h3>
+    <div class="col-sm-4 col-print-4" style="border-top: 4px solid #e3e3e3; ">
+      <div class="row vertical-row-padding">
+        <div class="col-sm-12 col-print-12 centered">
+          <h3 class="subtitle">Age</h3>
+        </div>
+      </div>
+      <div class="row vertical-row-padding">
+        <div class="col-md-12 col-sm-12  col-print-4">
+          <div id="chart3"></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row section-title-row hidden-md hidden-lg hidden-print">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-print-6 centered" style="border-bottom: 4px solid #e3e3e3; border-right: 4px solid #e3e3e3; border-top: 4px solid #e3e3e3;">
+      <div class="row vertical-row-padding">
+        <div class="col-sm-12">
+          <h3 class="subtitle">Renters vs Owners</h3>
+        </div>
+      </div>
+      <div class="row vertical-row-padding">
+        <div class="col-sm-12 col-xs-12 col-print-6">
+          <div id="chart4"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-print-6 centered" style="border-bottom: 4px solid #e3e3e3; border-top: 4px solid #e3e3e3; ">
+      <div class="row vertical-row-padding">
+        <div class="col-sm-12">
+          <h3 class="subtitle">Education</h3>
+        </div>
+      </div>
+      <div class="row vertical-row-padding">
+        <div class="col-sm-12 col-print-6">
+          <div id="chart5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row hidden-md hidden-lg hidden-print">
     <div class="col-sm-12 centered">
       <h3 class="subtitle">Race</h3>
     </div>
-  </div>
-  <div class="row vertical-row-padding">
+  </div> -->
+  <!-- <div class="row vertical-row-padding">
     <div class="col-sm-6 col-md-4 col-print-4">
       <div id="chart1"></div>
     </div>
@@ -81,15 +142,15 @@
       <div id="chart2"></div>
     </div>
     <div class="col-md-4 col-sm-12 col-xs-12 col-print-4">
-      <div class="row section-title-row hidden-md hidden-lg hidden-print">
+      <div class="row hidden-md hidden-lg hidden-print">
         <div class="col-sm-12 centered">
-          <h3 class="subtitle">Age Breakdowns</h3>
+          <h3 class="subtitle">Age</h3>
         </div>
       </div>
       <div id="chart3"></div>
     </div>
-  </div>
-  <div class="row section-title-row hidden-sm hidden-xs">
+  </div> -->
+  <!-- <div class="row hidden-sm hidden-xs">
     <div class="col-sm-6 col-print-6 centered">
       <h3 class="subtitle">Renters vs Owners</h3>
     </div>
@@ -97,27 +158,29 @@
       <h3 class="subtitle">Education</h3>
     </div>
   </div>
-  <div class="row section-title-row hidden-md hidden-lg hidden-print">
+  <div class="row hidden-md hidden-lg hidden-print">
     <div class="col-sm-12 centered">
       <h3 class="subtitle">Renters vs Owners</h3>
     </div>
-  </div>
-  <div class="row vertical-row-padding">
+  </div> -->
+  <!-- <div class="row vertical-row-padding">
     <div class="col-md-6 col-sm-12 col-xs-12 col-print-6">
       <div id="chart4"></div>
     </div>
     <div class="col-md-6 col-sm-12 col-xs-12 col-print-6">
-      <div class="row section-title-row hidden-md hidden-lg hidden-print">
+      <div class="row hidden-md hidden-lg hidden-print">
         <div class="col-sm-12 centered">
           <h3 class="subtitle">Education</h3>
         </div>
       </div>
       <div id="chart5"></div>
     </div>
-  </div>
+  </div> -->
   <div class="row vertical-row-padding">
     <div class="col-sm-6 col-md-6 col-md-offset-2">
       <div id="map" class="map map-home" style="height: 200px;"></div>
     </div>
   </div>
+
+  <script type="text/javascript" src="general_demographic.js"></script>
 </div>

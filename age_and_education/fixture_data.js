@@ -56,7 +56,7 @@
 //                 "65Plus": 4.5728539705119315
 //             }
 //         },
-//         "researchSpecification" : {
+//         "reportSpecification" : {
 //             reportName: "age_and_education",
 //             geoJSON: {
 //                 type: "Feature",
@@ -130,7 +130,7 @@ var data = polygonData = {
             "65Plus": 4.5728539705119315
         }
     },
-    "researchSpecification" : {
+    "reportSpecification" : {
         reportName: "age_and_education",
         geoJSON:     {
             "type": "Feature",
@@ -167,8 +167,3 @@ var data = polygonData = {
         }
     }
 }
-
-
-
-
-

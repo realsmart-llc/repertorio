@@ -33,12 +33,15 @@ var data = pointData = {
                 coordinates: [-79.523149,36.095723],
                 radius: 1600,
                 type: "Point"
-            }
+            },
+						properties: {
+				      "address" : "204 Windrift Drive, Gibsonville, NC"
+				     }
         }
     }
 }
 
-var data = polygonData = {
+var xdata = polygonData = {
 	"years": {
 		"1990": {
 			"total": 26.82729449934222,

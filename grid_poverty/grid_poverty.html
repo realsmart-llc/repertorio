@@ -1,147 +1,207 @@
-<link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-platform-assets/main.css">
-<link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-platform-assets/print.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<!-- Load d3.js and c3.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.3/d3.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.js"></script>
+<head>
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/print.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/reports.css" rel="stylesheet">
+  <script type="text/javascript" src="fixture_data.js"></script>
 
+</head>
 
-
-<div class="container-fluid">
+<div class="container container-print">
   <div class="row report-title-row">
-    <div class="col-md-12 col-sm-12 centered">
-      <h5 class="page-subtitle-brand">Gr!d Reports: POVERTY REPORT</h5>
-			<div id="point">
-	      <h3 class="page-title">
-					<span class="page-title" id="radius">5</span> mile radius
-					<span class="page-title" class="address"></span>
-				</h3>
-			</div>
-			<div id="polygon">
-				<h3 class="page-title">
-					<span class="page-title" class="address"></span>
-				</h3>
-			</div>
+    <div class="promo col-sm-6 hidden-print pull-right">
+      <p class="description-white">Make more reports at <a href="http://cartoscope.io/" target="_blank">cartoscope.io</a></p>
     </div>
+    <div class="promo col-print-5 col-print-offset-6 visible-print-inline">
+      <p class="description-white share-this-report">Make more reports at cartoscope.io </p>
+    </div>
+    <div class="col-sm-2 col-print-2">
+      <img src="https://s3.amazonaws.com/cartoscope-assets/assets/TheGridWorxLogo_White.png" class="img-responsive" style="height: 120px;"/>
+    </div>
+    <div class="col-sm-8 col-print-8 centered">
+      <h5 class="page-subtitle">GridWorx Reports: POVERTY REPORT</h5>
+      <div id="point">
+        <h3 class="page-title">
+          <span class="page-title" id="radius">5</span> mile radius
+          <span class="address page-title"></span>
+        </h3>
+      </div>
+      <div id="polygon">
+        <h3 class="page-title">
+          <span class="address page-title"></span>
+        </h3>
+      </div>
+      <button class="btn btn-mc hidden-print" onclick="printReport()">Print this Report</button>
+    </div>
+    <div class="col-sm-2 hidden-print">
+      <h5 class="description-white share-this-report">Share this report</h5>
+      <ul class="share-buttons">
+         <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+
+         <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+
+          <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fcartoscope.io&title=&summary=&source=http%3A%2F%2Fcartoscope.io" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
+
+          <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-lg" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
+      </ul>
+      <br />
+    </div>
+
   </div>
-</div>
-<div class="container">
   <br />
   <div class="row section-title-row">
-    <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">
+    <div class="col-sm-4 col-sm-offset-1 col-print-3 col-print-offset-2">
       <h3 class="subtitle centered">Total Families</h3>
     </div>
-    <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">
-      <h3 class="subtitle  centered">Poverty Rates</h3>
+    <div class="col-sm-4 col-sm-offset-2 col-print-3 col-print-offset-2">
+      <h3 class="subtitle centered">Poverty Rates</h3>
     </div>
   </div>
   <div class="row vertical-row-padding">
-    <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">
-      <div id="chart4"></div>
+    <div class="col-sm-4 col-sm-offset-1 col-print-4">
+      <div id="chart1"></div>
     </div>
-    <div class="col-md-3 col-sm-3">
+    <div class="col-sm-3 col-sm-offset-1 col-print-3 col-print-offset-1">
       <br />
-      <h2 class="description centered">Poverty Rate for North Carolina is</h2>
-      <h2 class="number-subtitle-big centered">17.2%</h2>
+      <h2 class="description-poverty centered">Poverty Rate for North Carolina is</h2>
+      <h2 class="number-subtitle-big-poverty centered">17.2%</h2>
     </div>
-    <div class="col-md-3 col-sm-3">
+    <div class="col-sm-3 col-print-4">
       <br />
-      <h2 class="description centered">
+      <h2 class="description-poverty centered">
 				Poverty Rate for the research area is
 			</h2>
-      <h2 class="number-subtitle-big centered">
-				<span class="number-subtitle-big" id="povertyRate"></span>%
+      <h2 class="number-subtitle-big-poverty centered">
+				<span class="number-subtitle-big-poverty" id="povertyRate"></span>%
 			</h2>
     </div>
   </div>
   <div class="row section-title-row">
-    <div class="col-md-6 col-sm-6 centered">
-      <h3 class="subtitle">Breakdown of Families Below the <br /> Poverty Line with Children by Family Type</h3>
+    <div class="col-md-6 col-sm-6 col-print-5 col-print-offset-1 centered">
+      <h3 class="subtitle-poverty">Breakdown of Families Below the <br /> Poverty Line with Children by Family Type</h3>
     </div>
-    <div class="col-md-6 col-sm-6 centered">
-      <h3 class="subtitle">FAMILIES BELOW THE POVERTY LINE <br /> WITH OR WITHOUT CHILDREN</h3>
+    <div class="col-md-6 col-sm-6 col-print-6 centered">
+      <h3 class="subtitle-poverty">FAMILIES BELOW THE POVERTY LINE <br /> WITH OR WITHOUT CHILDREN</h3>
     </div>
   </div>
   <div class="row vertical-row-padding">
-    <div class="col-md-4 col-sm-4">
-      <div id="chart1"></div>
-    </div>
-    <div class="col-md-4 col-sm-4">
+    <div class="col-sm-4 col-print-3">
       <div id="chart2"></div>
     </div>
-    <div class="col-md-4 col-sm-4">
+    <div class="col-sm-4 col-print-4">
       <div id="chart3"></div>
+    </div>
+    <div class="col-sm-4 col-print-4">
+      <div id="chart4"></div>
     </div>
   </div>
   <div class="row household-box">
-    <div class="col-md-6 col-sm-6 ">
-      <h3 class="subtitle-dark centered">What is poverty?</h3>
-      <br />
+    <div class="col-md-6 col-sm-6 col-print-6">
+      <h4 class="subtitle-dark-poverty centered">What is poverty?</h4>
       <p class="description justified">
         <i>“Following the Office of Management and Budget's (OMB) Statistical Policy Directive 14, the Census Bureau uses a set of money income thresholds that vary by family size and composition to determine who is in poverty. If a family's total income is less than the family's threshold, then that family and every individual in it is considered in poverty. The official poverty thresholds do not vary geographically, but they are updated for inflation using the Consumer Price Index (CPI-U). The official poverty definition uses money income before taxes and does not include capital gains or noncash benefits (such as public housing, Medicaid, and food stamps).”</i>
       </p>
     </div>
-    <div class="col-md-6 col-sm-6 ">
-      <h3 class="subtitle-dark centered">Federal Poverty Levels by <br /> number of persons in household</h3>
-      <div class="row vertical-row-padding">
-        <div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 centered">
-          <img src="https://s3.amazonaws.com/cartoscope-platform-assets/1.png" class="img-responsive image-men">
-          <h3 class="description-small">1 Person</h3>
-          <h2 class="number-subtitle">$11770</h2>
+    <div class="col-md-6 col-sm-6 col-print-6">
+      <h4 class="subtitle-dark-poverty centered">Federal Poverty Levels by number of persons in household</h4>
+      <div class="row">
+        <div class="col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-2 col-print-3 centered">
+          <img src="https://s3.amazonaws.com/cartoscope-assets/assets/poverty-report/1.png" class="img-responsive image-men">
         </div>
-        <div class="col-md-2 col-sm-2 centered">
-          <img src="https://s3.amazonaws.com/cartoscope-platform-assets/2.png" class="img-responsive image-men" >
-          <h3 class="description-small">2 Persons</h3>
-          <h2 class="number-subtitle">$15930</h2>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <img src="https://s3.amazonaws.com/cartoscope-assets/assets/poverty-report/2.png" class="img-responsive image-men" >
         </div>
-        <div class="col-md-2 col-sm-2 border-left centered">
-          <img src="https://s3.amazonaws.com/cartoscope-platform-assets/3.png" class="img-responsive image-men">
-          <h3 class="description-small">3 Persons</h3>
-          <h2 class="number-subtitle">$20090</h2>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <img src="https://s3.amazonaws.com/cartoscope-assets/assets/poverty-report/3.png" class="img-responsive image-men">
         </div>
-        <div class="col-md-2 col-sm-2 centered">
-          <img src="https://s3.amazonaws.com/cartoscope-platform-assets/4.png" class="img-responsive image-men">
-          <h2 class="description-small">4 Persons</h2>
-          <h2 class="number-subtitle">$24250</h2>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <img src="https://s3.amazonaws.com/cartoscope-assets/assets/poverty-report/4.png" class="img-responsive image-men">
         </div>
       </div>
-      <div class="row vertical-row-padding">
-        <div class="col-md-2 col-md-offset-2 col-sm-2  col-sm-offset-2 centered">
-          <img src="https://s3.amazonaws.com/cartoscope-platform-assets/5.png" class="img-responsive image-men" >
-          <h2 class="description-small">5 Persons</h2>
-          <h2 class="number-subtitle">$28410</h2>
+      <div class="row">
+        <div class="col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-2 col-print-3 centered">
+          <h4 class="description-small-poverty">1 person</h4>
         </div>
-        <div class="col-md-2 col-sm-2 centered">
-          <img src="https://s3.amazonaws.com/cartoscope-platform-assets/6.png" class="img-responsive image-men">
-          <h2 class="description-small">6 Persons</h2>
-          <h2 class="number-subtitle">$32570</h2>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h4 class="description-small-poverty">2 Persons</h4>
         </div>
-        <div class="col-md-2 col-sm-2 centered">
-          <img src="https://s3.amazonaws.com/cartoscope-platform-assets/7.png" class="img-responsive image-men">
-          <h2 class="description-small">7 Persons</h2>
-          <h2 class="number-subtitle">$36730</h2>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h4 class="description-small-poverty">3 Persons</h4>
         </div>
-        <div class="col-md-2 col-sm-2 centered">
-          <img src="https://s3.amazonaws.com/cartoscope-platform-assets/8.png" class="img-responsive image-men">
-          <h2 class="description-small">8 Persons</h2>
-          <h2 class="number-subtitle">$40890</h2>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h4 class="description-small-poverty">4 Persons</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-2 col-print-3 centered">
+          <h3 class="number-subtitle-poverty">$11770</h3>
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h3 class="number-subtitle-poverty">$15930</h3>
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h3 class="number-subtitle-poverty">$20090</32>
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h3 class="number-subtitle-poverty">$24250</h3>
+        </div>
+      </div>
+      <div class="row vertical-row-padding-top">
+        <div class="col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-2 col-print-3 centered">
+          <img src="https://s3.amazonaws.com/cartoscope-assets/assets/poverty-report/5.png" class="img-responsive image-men">
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <img src="https://s3.amazonaws.com/cartoscope-assets/assets/poverty-report/6.png" class="img-responsive image-men" >
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <img src="https://s3.amazonaws.com/cartoscope-assets/assets/poverty-report/7.png" class="img-responsive image-men">
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <img src="https://s3.amazonaws.com/cartoscope-assets/assets/poverty-report/8.png" class="img-responsive image-men">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-2 col-print-3 centered">
+          <h4 class="description-small-poverty">5 persons</h4>
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h4 class="description-small-poverty">6 Persons</h4>
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h4 class="description-small-poverty">7 Persons</h4>
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h4 class="description-small-poverty">8 Persons</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-2 col-print-3 centered">
+          <h3 class="number-subtitle-poverty">$11770</h3>
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h3 class="number-subtitle-poverty">$15930</h3>
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h3 class="number-subtitle-poverty">$20090</32>
+        </div>
+        <div class="col-sm-2 col-print-3 col-xs-2 centered">
+          <h3 class="number-subtitle-poverty">$24250</h3>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="container" id="footer">
-  <div class="row ">
-    <!--<div class="col-md-2 col-sm-2 col-xs-2">
-      <img src="https://s3.amazonaws.com/cartoscope-platform-assets/TheGridWorxLogo_White.png" class="img-logo img-responsive" style=""/>
+  <div class="row vertical-row-padding">
+    <div class="col-sm-6 col-md-6 col-md-offset-2">
+      <div id="map" class="map map-home" style="height: 200px;"></div>
     </div>
-    <div class="col-md-10 col-sm-6 col-xs-6">
-      <p class="footer-text">
-        www.TheGridWorx.com | (540) 2721578 | info@TheGridWorx.com
-      </p>
-    </div>-->
   </div>
+
+  <script type="text/javascript" src="grid_poverty.js"></script>
 </div>
