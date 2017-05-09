@@ -48,6 +48,7 @@ var redIcon = new L.Icon({
 if(type == "Point"){
   var centerMarker = L.marker([coordinates[1], coordinates[0]], {icon: redIcon});
   centerMarker.addTo(map)
+  map.setView([coordinates[1], coordinates[0]])
   centerMarker._bringToFront();
 
   // var marker = L.marker([coordinates[1], coordinates[0]]).addTo(map);
