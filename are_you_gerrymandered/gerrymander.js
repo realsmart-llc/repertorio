@@ -58,7 +58,7 @@ function processGScoreObject(data) {
 
   if(totalPoliDeviation < 10){
     // Not Gerrymandered
-  }else if(totalPoliDeviation < 30){
+  }else if(totalPoliDeviation < 50){
     gScore += 1
   }else{
     gScore += 2
@@ -89,13 +89,13 @@ function processGScoreObject(data) {
   gScore
 
   if (gScore == 4 || gScore == 5 ) {
-    $("#gScoreImg").attr("src","img/very.png");
+    $("#gScoreImg").attr("src","https://s3.amazonaws.com/areyougerrymandered.com/assets/img/very.png");
   }
   else if (gScore == 2 || gScore == 3 ) {
-    $("#gScoreImg").attr("src","img/kindof.png");
+    $("#gScoreImg").attr("src","https://s3.amazonaws.com/areyougerrymandered.com/assets/img/kindof.png");
   }
   else if (gScore == 0 || gScore == 1 ) {
-    $("#gScoreImg").attr("src","img/not.png");
+    $("#gScoreImg").attr("src","https://s3.amazonaws.com/areyougerrymandered.com/assets/img/not.png");
   }
 }
 //

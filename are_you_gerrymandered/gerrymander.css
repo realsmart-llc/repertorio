@@ -7,7 +7,7 @@ body {
 .white-div {
   padding: 5%;
   margin: 2%;
-  background: url(img/vertical-waves.png);
+  background: url("https://s3.amazonaws.com/areyougerrymandered.com/assets/img/vertical-waves.png");
   background-color: #ffffff;
 }
 
