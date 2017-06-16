@@ -9,7 +9,9 @@ printToS3 = function(){
     var s3 = new AWS.S3();
 
     $("#hidden-print").remove()
+    $("#social-share").show()
     $("#inputContainer").html("<h3 class='section-title'>" + address + "</h3>")
+
 
     var file = new File(["<html>", document.head.outerHTML, document.body.outerHTML , "</html>"], "foo.html" ,{type: "text/html"});
     var params = {

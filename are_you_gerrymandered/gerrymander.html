@@ -100,7 +100,7 @@
               </div>
             </div>
             <div class="row hidden-print">
-              <div class="col-md-4 col-md-offset-4 ">
+              <div class="col-md-4 col-md-offset-4" id="social-share">
                 <h5 class="section-title">Share this report</h5>
                 <ul class="share-buttons">
                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
@@ -112,37 +112,45 @@
                     <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-3x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
                 </ul>
                 <!--<button id="printReport" class="btn btn-gerrymander" onclick="printReport()">Print</button>-->
+
+              </div>
+            </div>
+            <div class="row hidden-print">
+              <div class="col-md-12 text-center">
+                <br />
                 <button id="printReport" class="btn btn-gerrymander" onclick="printToS3()">Share this Infographic</button>
+              </div>
+            </div>
+            <div class="row hidden-print">
+              <div class="col-md-12 text-center">
+                <br />
+                <button id="what-is-this" class="btn btn-gerrymander">What is this?</button>
+              </div>
+            </div>
+          </div>
+          <div id="blue-div">
+            <div class="row last-row">
+              <div class="col-md-8 col-md-offset-2">
+                <p  class="description">
+                  Explanation: A Block Group is the Census's most granular, publicly available data division. <br />  The 1 mile radius is a porportional average of all of the Block Groups within 1 mile.
+                </p>
+                <p class="description">
+                  This estimation is produced using data from the <a target="_blank" href="https://www.census.gov/">US Census Bureau</a>.  <br/>However, this website is not endorsed by the US Census Bureau.
+                  <br/>
+                  This microsite is produced by <a target="_blank" href="http://realsmart.io">Realsmart</a>, a leader in location intelligence.
+                  <br/>
+                  <br/>
+                  Yes! We can help with bulk location intelligence processing.  Contact us at <a target="_blank" href="http://realsmart.io/">realsmart.io</a>.
+                  <br/>
+                  For other examples of our work, check out <a target="_blank" href="http://cartoscope.io/">cartoscope.io</a>.
+                </p>
+                <br />
               </div>
             </div>
           </div>
         </div>
-        <div class="row last-row hidden-print">
-          <div class="col-md-12 text-center">
-              <button id="what-is-this" class="btn btn-gerrymander">What is this?</button>
-            <!-- <h2 class="section-title" id="what-is-this">What is this?</h2> -->
-          </div>
-        </div>
-        <div id="blue-div">
-          <div class="row last-row">
-            <div class="col-md-8 col-md-offset-2">
-              <p  class="description">
-                Explanation: A Block Group is the Census's most granular, publicly available data division. <br />  The 1 mile radius is a porportional average of all of the Block Groups within 1 mile.
-              </p>
-              <p class="description">
-                This estimation is produced using data from the <a target="_blank" href="https://www.census.gov/">US Census Bureau</a>.  <br/>However, this website is not endorsed by the US Census Bureau.
-                <br/>
-                This microsite is produced by <a target="_blank" href="http://realsmart.io">Realsmart</a>, a leader in location intelligence.
-                <br/>
-                <br/>
-                Yes! We can help with bulk location intelligence processing.  Contact us at <a target="_blank" href="http://realsmart.io/">realsmart.io</a>.
-                <br/>
-                For other examples of our work, check out <a target="_blank" href="http://cartoscope.io/">cartoscope.io</a>.
-              </p>
-              <br />
-            </div>
-          </div>
-        </div>
+
+
       </div>
 
       <script src="gerrymander.js" class="hidden-print"></script>
