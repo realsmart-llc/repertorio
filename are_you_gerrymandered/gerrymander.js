@@ -58,16 +58,16 @@ function processGScoreObject(data) {
 
   if(totalPoliDeviation < 10){
     // Not Gerrymandered
-  }else if(totalPoliDeviation < 50){
+  }else if(totalPoliDeviation < 30){
     gScore += 1
   }else{
-    gScore += 2
+    gScore += 3
   }
 
   var incomeDeviation = Math.abs(data["income"]- 47,830)
-
+  console.log(incomeDeviation)
   if(incomeDeviation > 30000){
-    gScore += 1
+    gScore += 2
   }
 
   var blackDeviation = Math.abs(data["race"]["black"]- 22)
@@ -83,18 +83,18 @@ function processGScoreObject(data) {
   }else if(totalRaceDeviation < 30){
     gScore += 1
   }else{
-    gScore += 2
+    gScore += 3
   }
 
-  gScore
+ console.log(gScore)
 
-  if (gScore == 4 || gScore == 5 ) {
+  if (gScore > 7 ) {
     $("#gScoreImg").attr("src","https://s3.amazonaws.com/areyougerrymandered.com/assets/img/very.png");
   }
-  else if (gScore == 2 || gScore == 3 ) {
+  else if (gScore > 4) {
     $("#gScoreImg").attr("src","https://s3.amazonaws.com/areyougerrymandered.com/assets/img/kindof.png");
   }
-  else if (gScore == 0 || gScore == 1 ) {
+  else{
     $("#gScoreImg").attr("src","https://s3.amazonaws.com/areyougerrymandered.com/assets/img/not.png");
   }
 }
@@ -112,7 +112,7 @@ autocomplete.addListener('place_changed', function() {
         type: "Feature",
         geometry: {
             coordinates: coordinates,
-            radius: 1600,
+            radius: 800,
             type: "Point"
         },
         properties: {
