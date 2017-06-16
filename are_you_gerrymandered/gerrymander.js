@@ -11,6 +11,14 @@ var autocomplete = new google.maps.places.Autocomplete(input);
 
 // Table
 function processTableObject(data) {
+
+  function commaSeparateNumber(val){
+    while (/(\d+)(\d{3})/.test(val.toString())){
+      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+    }
+    return val;
+  }
+
   var firstChangeValue =
   (data["political-affiliation"]["republican"])
   var secondChangeValue =
@@ -33,7 +41,7 @@ function processTableObject(data) {
   $("#black").html(fourthChangeValue);
   $("#white").html(fifthChangeValue);
   $("#other").html(sixthChangeValue);
-  $("#income").html(seventhChangeValue);
+  $("#income").html(commaSeparateNumber(seventhChangeValue));
 }
 // Gerrymandering Calculator
 function processGScoreObject(data) {
