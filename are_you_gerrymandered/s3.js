@@ -9,11 +9,12 @@ printToS3 = function(){
     var s3 = new AWS.S3();
 
     $("#hidden-print").remove()
+    $("#inputContainer").html("<h3 class='section-title'>" + address + "</h3>")
 
     var file = new File(["<html>", document.head.outerHTML, document.body.outerHTML , "</html>"], "foo.html" ,{type: "text/html"});
     var params = {
-            Bucket: "carto.report",
-            Key: "gerrymander/foo2"  + ".html",
+            Bucket: "areyougerrymandered.com",
+            Key: "reports/foo2"  + ".html",
             Body: file,
             // ACL: 'public-read',
             ContentType: 'text/html'
