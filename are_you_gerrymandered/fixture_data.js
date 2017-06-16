@@ -13,7 +13,7 @@ var data = {
     },
     "income": "700,000",
     "reportSpecification" : {
-       reportName: "are_you_gerrymandered",
+       reportName: "gerrymander",
        geoJSON: {
            type: "Feature",
            geometry: {
