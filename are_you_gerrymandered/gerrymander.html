@@ -9,13 +9,13 @@
       <meta property="og:url" content="https://s3.amazonaws.com/carto.report/are-you-gerrymandered/index.html">
       <title>Are you Gerrymandered?</title>
       <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="gerrymander.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/areyougerrymandered.com/assets/gerrymander.css">
       <link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/print.css" rel="stylesheet">
       <!-- jQuery library -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
       <!-- Latest compiled JavaScript -->
-      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="fixture_data.js"></script>
       <script src="https://use.fontawesome.com/641ca369c7.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2ZPZXzeHrvdVs89ZHacXJ7TpslDKZzRQ&libraries=places"></script>
@@ -105,11 +105,12 @@
 
                    <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
 
-                    <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fcartoscope.io&title=&summary=&source=http%3A%2F%2Fcartoscope.io" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
+                    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fcartoscope.io&title=&summary=&source=http%3A%2F%2Fcartoscope.io" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
 
                     <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-3x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
                 </ul>
                 <button id="printReport" class="btn btn-gerrymander" onclick="printReport()">Print</button>
+                <button id="printReport" class="btn btn-gerrymander" onclick="printToS3()">Print as Website</button>
               </div>
             </div>
           </div>
@@ -142,8 +143,9 @@
         </div>
       </div>
 
-      <script src="gerrymander.js"></script>
-
+      <script src="gerrymander.js" class="hidden-print"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.72.0/aws-sdk.js"></script>
+      <script src="s3.js"></script>
     </body>
 
 

@@ -8,6 +8,7 @@ $("#results").hide();
 
 var input = document.getElementById('input');
 var autocomplete = new google.maps.places.Autocomplete(input);
+var address;
 
 // Table
 function processTableObject(data) {
@@ -103,7 +104,7 @@ autocomplete.addListener('place_changed', function() {
   var place = autocomplete.getPlace();
   $("#spinner").show()
   var coordinates = [place.geometry.location.lng(), place.geometry.location.lat()]
-  var address = place["formatted_address"].split(",");
+  address = place["formatted_address"].split(",");
 
   var reportSpecification = {
     reportName: "gerrymander",
