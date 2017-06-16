@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+
+body {
+  /*background-color: #FEE804;*/
+}
+
+.white-div {
+  padding: 5%;
+  margin: 2%;
+  background: url(img/vertical-waves.png);
+  background-color: #ffffff;
+}
+
+#blue-div {
+  padding: 5%;
+  margin: 2%;
+  background-color: #3A9DDB;
+}
+
+.title-row {
+  padding-top: 3%;
+  padding-bottom: 2%;
+}
+
+.vertical-row-padding {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.last-row {
+  padding-top: 2%;
+  padding-bottom: 4%;
+}
+
+.title {
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-weight: 800;
+  font-size: 60px;
+  color: #2a2a2a;
+}
+
+.title:hover {
+  color: #FF4020;
+}
+
+.section-title {
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #2a2a2a;
+}
+
+/*.form-control  {
+  border-radius: 0px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  height: 44px;
+}*/
+
+.btn-gerrymander {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #FF4020;
+  border-color: #FF4020;
+  color: #fff;
+  border-radius: 0px;
+}
+
+.description {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.description a {
+  color: #2a2a2a;
+}
+
+/* Chart and Table*/
+
+.table-bordered {
+  background-color: #ffffff;
+}
+
+.table-bold{
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.table-normal {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  color: #2a2a2a;
+  font-size: 18px;
+}
+
+.table-padding {
+  padding-top: 5%;
+}
+
+hr {
+  background-color: #c3c3c3;
+}
+
+/*Social Share*/
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+.fa {
+  color: #2a2a2a;
+}
+
+.fa:hover {
+  color: #FF4020;
+}
+
+@media (max-width:480px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+
+@media print {
+  .title {
+    font-size: 20px;
+  }
+
+
+
+  .estimate-number {
+    color: #2a2a2a;
+    font-size: 22px;
+  }
+
+  .section-title {
+    color: #2a2a2a;
+    font-size: 14px;
+  }
+
+  .title-row {
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }*/
+
+  .br {
+    display: none;
+  }
+}

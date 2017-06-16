@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title" content="Are you Gerrymandered?">
+      <meta property="og:description" content="Analyze your address to see if you live in a bubble">
+      <meta property="og:image" content="https://s3.amazonaws.com/carto.report/are-you-gerrymandered/very.png">
+      <meta property="og:url" content="https://s3.amazonaws.com/carto.report/are-you-gerrymandered/index.html">
+      <title>Are you Gerrymandered?</title>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="gerrymander.css">
+      <link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/print.css" rel="stylesheet">
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="fixture_data.js"></script>
+      <script src="https://use.fontawesome.com/641ca369c7.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2ZPZXzeHrvdVs89ZHacXJ7TpslDKZzRQ&libraries=places"></script>
+
+
+    </head>
+    <body>
+      <div class="container-fluid">
+        <div class="row title-row">
+          <div class="col-md-12 text-center">
+            <h1 class="title">Are you Gerrymandered?</h1>
+          </div>
+          <div class="col-md-12 text-center">
+            <h1 class="section-title"><img height="50"; src="img/nc.png" /> North Carolina Edition</h1>
+          </div>
+        </div>
+
+        <div class="row vertical-row-padding">
+          <div class="col-md-6 col-md-offset-3">
+            <p class="section-title hidden-print">Type in Your North Carolina Address</p>
+            <input type="text" class="form-control" placeholder="Your Address Here" id="input">
+          </div>
+        </div>
+        <div class="white-div" id="results">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-print-8 col-print-offset-2 text-center">
+              <img class="img-gerrymander img-responsive" id="gScoreImg" src='img/not.png'/>
+            </div>
+          </div>
+          <div class="row results-row vertical-row-padding text-center" id="output">
+            <div class="col-sm-8 col-sm-offset-2 col-print-12">
+              <br />
+              <div id="table">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="table-bold"></th>
+                      <th class="table-bold">You</th>
+                      <th class="table-bold">State Average</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td rowspan="3" class="table-bold table-padding">Political Affiliation</th>
+                      <td class="table-normal"> <img width=20 src='img/rep.png'/> <span id="republican">1%</span> Republican</td>
+                      <td class="table-normal"> <img width=20 src='img/rep.png'/> 30% Republican</td>
+                    </tr>
+                    <tr>
+                      <td class="table-normal"> <img width=20 src='img/dem.png'/> <span id="democratic">1%</span> Democratic</td>
+                      <td class="table-normal"> <img width=20 src='img/dem.png'/> 41% Democrat</td>
+                    </tr>
+                    <tr>
+                      <td class="table-normal"> <img width=20 src='img/independent.png'/> <span id="unaffiliated">1%</span> Independent</td>
+                      <td class="table-normal"> <img width=20 src='img/independent.png'/> 28% Unaffiliated</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="1" class="table-bold">Income</th>
+                      <td class="table-normal"><span id="income">100</span></td>
+                      <td class="table-normal">47,830</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3" class="table-bold table-padding">Race</th>
+                      <td class="table-normal"><span id="black">1%</span> Black</td>
+                      <td class="table-normal">22% Black</td>
+                    </tr>
+                    <tr>
+                      <td class="table-normal"><span id="white">1%</span> White</td>
+                      <td class="table-normal">65% White</td>
+                    </tr>
+                    <tr>
+                      <td class="table-normal"><span id="other">1%</span> Other</td>
+                      <td class="table-normal">13% Other</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row hidden-print">
+              <div class="col-md-4 col-md-offset-4 ">
+                <h5 class="section-title">Share this report</h5>
+                <ul class="share-buttons">
+                   <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+
+                   <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+
+                    <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fcartoscope.io&title=&summary=&source=http%3A%2F%2Fcartoscope.io" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
+
+                    <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-3x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
+                </ul>
+                <button id="printReport" class="btn btn-gerrymander" onclick="printReport()">Print</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row last-row hidden-print">
+          <div class="col-md-12 text-center">
+              <button id="what-is-this" class="btn btn-gerrymander">What is this?</button>
+            <!-- <h2 class="section-title" id="what-is-this">What is this?</h2> -->
+          </div>
+        </div>
+        <div id="blue-div">
+          <div class="row last-row">
+            <div class="col-md-8 col-md-offset-2">
+              <p  class="description">
+                Explanation: A Block Group is the Census's most granular, publicly available data division. <br />  The 1 mile radius is a porportional average of all of the Block Groups within 1 mile.
+              </p>
+              <p class="description">
+                This estimation is produced using data from the <a target="_blank" href="https://www.census.gov/">US Census Bureau</a>.  <br/>However, this website is not endorsed by the US Census Bureau.
+                <br/>
+                This microsite is produced by <a target="_blank" href="http://realsmart.io">Realsmart</a>, a leader in location intelligence.
+                <br/>
+                <br/>
+                Yes! We can help with bulk location intelligence processing.  Contact us at <a target="_blank" href="http://realsmart.io/">realsmart.io</a>.
+                <br/>
+                For other examples of our work, check out <a target="_blank" href="http://cartoscope.io/">cartoscope.io</a>.
+              </p>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="gerrymander.js"></script>
+
+    </body>
+
+
+
+  </html>
