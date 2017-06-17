@@ -10,13 +10,13 @@ printToS3 = function(){
     $("#hidden-print").remove()
     $("#printReport").remove();
 
-    $("#inputContainer").html("<h2 class='section-title'>" + address + "</h2>")
+    $("#inputContainer").html("<h2 class='report-title'>" + address + "</h2>")
     $("#social-share").show()
     var key = "reports/"+ address.join("").replace(/ /g,"_")  + ".html"
     ga('send', 'event', "interaction", "print_report", "key", key);
     
     var file = new File(["<html>", document.head.outerHTML, document.body.outerHTML , "</html>"], "foo.html" ,{type: "text/html"});
-    $("#social-share").hide()    
+    $("#social-share").hide()
     var params = {
             Bucket: "areyougerrymandered.com",
             Key: key,
