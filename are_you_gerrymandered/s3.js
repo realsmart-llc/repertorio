@@ -11,11 +11,11 @@ printToS3 = function(){
     $("#hidden-print").remove()
     $("#printReport").remove();
 
-
     $("#inputContainer").html("<h2 class='section-title'>" + address + "</h2>")
     $("#social-share").show()
     var key = "reports/"+ address.join("").replace(/ /g,"_")  + ".html"
     var file = new File(["<html>", document.head.outerHTML, document.body.outerHTML , "</html>"], "foo.html" ,{type: "text/html"});
+    $("#social-share").hide()    
     var params = {
             Bucket: "areyougerrymandered.com",
             Key: key,
