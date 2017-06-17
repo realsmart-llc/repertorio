@@ -29,10 +29,10 @@ printToS3 = function(){
         else{
             url = `http://areyougerrymandered.com/${key}`
 
-            parent.append(`<a class="btn btn-default" href="${url}" target="_blank">Link to Infographic</a>`)
+            parent.append(`<a class="btn btn-share" href="${url}" target="_blank">Link to Infographic</a>`)
             $("#printReport").remove()
-            console.log(url);            
-        }     
+            console.log(url);
+        }
     });
 
 }

@@ -52,12 +52,17 @@ body {
   color: #2a2a2a;
 }
 
-/*.form-control  {
-  border-radius: 0px;
+
+.btn-share {
   font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  height: 44px;
-}*/
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #3A9DDB;
+  border-color: #3A9DDB;
+  color: #fff;
+  border-radius: 0px;
+}
 
 .btn-gerrymander {
   font-family: 'Lato', sans-serif;
@@ -142,8 +147,6 @@ ul.share-buttons li{
   .title {
     font-size: 20px;
   }
-
-
 
   .estimate-number {
     color: #2a2a2a;
