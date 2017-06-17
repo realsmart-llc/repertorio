@@ -102,7 +102,8 @@ autocomplete.addListener('place_changed', function() {
   $("#spinner").show()
   var coordinates = [place.geometry.location.lng(), place.geometry.location.lat()]
   address = place["formatted_address"].split(",");
-
+  ga('send', 'event', "interaction", "place_changed", "address", address);
+  
   var reportSpecification = {
     reportName: "gerrymander",
     geoJSON: {
@@ -117,7 +118,6 @@ autocomplete.addListener('place_changed', function() {
          }
     }
   }
-  ga('send','event','report','requested')
 
   $.post("https://2ki6gggaqc.execute-api.us-east-1.amazonaws.com/dev", JSON.stringify(reportSpecification), (result) => {
     $("#spinner").hide()

@@ -1,7 +1,6 @@
 
 
 printToS3 = function(){
-
     AWS.config = new AWS.Config();
     AWS.config.accessKeyId = "AKIAIYU2KUUXRQHSVHSA";
     AWS.config.secretAccessKey = "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";
@@ -14,6 +13,8 @@ printToS3 = function(){
     $("#inputContainer").html("<h2 class='section-title'>" + address + "</h2>")
     $("#social-share").show()
     var key = "reports/"+ address.join("").replace(/ /g,"_")  + ".html"
+    ga('send', 'event', "interaction", "print_report", "key", key);
+    
     var file = new File(["<html>", document.head.outerHTML, document.body.outerHTML , "</html>"], "foo.html" ,{type: "text/html"});
     $("#social-share").hide()    
     var params = {
