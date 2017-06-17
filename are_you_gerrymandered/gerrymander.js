@@ -87,12 +87,15 @@ function processGScoreObject(data) {
  console.log(gScore)
 
   if (gScore > 7 ) {
+    $("head").append(`<meta property="og:image" content="http://s3.amazonaws.com/areyougerrymandered.com/assets/img/very.png">`)
     $("#gScoreImg").attr("src","https://s3.amazonaws.com/areyougerrymandered.com/assets/img/very.png");
   }
   else if (gScore > 4) {
+    $("head").append(`<meta property="og:image" content="http://s3.amazonaws.com/areyougerrymandered.com/assets/img/kindof.png">`)
     $("#gScoreImg").attr("src","https://s3.amazonaws.com/areyougerrymandered.com/assets/img/kindof.png");
   }
   else{
+    $("head").append(`<meta property="og:image" content="http://s3.amazonaws.com/areyougerrymandered.com/assets/img/not.png">`)
     $("#gScoreImg").attr("src","https://s3.amazonaws.com/areyougerrymandered.com/assets/img/not.png");
   }
 }
