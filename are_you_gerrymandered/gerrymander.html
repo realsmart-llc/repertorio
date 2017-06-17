@@ -36,7 +36,7 @@
         <div class="row vertical-row-padding">
           <div class="col-md-6 col-md-offset-3">
             <div id="inputContainer" class="text-center">
-              <p class="section-title hidden-print">Type in Your North Carolina Address</p>
+              <p class="section-title hidden-print">Type a Place or Address in North Carolina</p>
               <input type="text" class="form-control" placeholder="Your Address Here" id="input">
             </div>
           </div>
@@ -100,7 +100,7 @@
               </div>
             </div>
             <div class="row hidden-print">
-              <div class="col-md-4 col-md-offset-4 ">
+              <div class="col-md-4 col-md-offset-4" id="social-share">
                 <h5 class="section-title">Share this report</h5>
                 <ul class="share-buttons">
                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
@@ -112,42 +112,61 @@
                     <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-3x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
                 </ul>
                 <!--<button id="printReport" class="btn btn-gerrymander" onclick="printReport()">Print</button>-->
+
+              </div>
+            </div>
+            <div class="row hidden-print">
+              <div class="col-md-12 text-center">
+                <br />
                 <button id="printReport" class="btn btn-gerrymander" onclick="printToS3()">Share this Infographic</button>
+              </div>
+            </div>
+            <div class="row hidden-print">
+              <div class="col-md-12 text-center">
+                <br />
+                <button id="what-is-this" class="btn btn-gerrymander">What is this?</button>
+              </div>
+            </div>
+          </div>
+          <div id="blue-div">
+            <div class="row last-row">
+              <div class="col-md-8 col-md-offset-2">
+                <p  class="description">
+                  Gerrymandering is defined as the manipulation of boundaries so as to favor one party or class.
+                  Perhaps you don't realize that you live in a bubble, and the majority of the country is not like your neighborhood. Your district might have been setup in a way that does not hold diversity.
+                </p>
+                <p class="description">
+                  The data was retrieved the <a target="_blank" href="https://www.census.gov/">US Census Bureau</a>.  <br/>However, this website is not endorsed by the US Census Bureau.
+                  <br/>
+                  This microsite is produced by <a target="_blank" href="http://realsmart.io">Realsmart</a>, a leader in location intelligence.
+                  <br/>
+                  <br/>
+                  Yes! We can help with any location intelligence need you might have.  Contact us at <a target="_blank" href="http://realsmart.io/">realsmart.io</a>.
+                  <br/>
+                  For other examples of our work, check out <a target="_blank" href="http://cartoscope.io/">cartoscope.io</a>.
+                </p>
+                <br />
               </div>
             </div>
           </div>
         </div>
-        <div class="row last-row hidden-print">
-          <div class="col-md-12 text-center">
-              <button id="what-is-this" class="btn btn-gerrymander">What is this?</button>
-            <!-- <h2 class="section-title" id="what-is-this">What is this?</h2> -->
-          </div>
-        </div>
-        <div id="blue-div">
-          <div class="row last-row">
-            <div class="col-md-8 col-md-offset-2">
-              <p  class="description">
-                Explanation: A Block Group is the Census's most granular, publicly available data division. <br />  The 1 mile radius is a porportional average of all of the Block Groups within 1 mile.
-              </p>
-              <p class="description">
-                This estimation is produced using data from the <a target="_blank" href="https://www.census.gov/">US Census Bureau</a>.  <br/>However, this website is not endorsed by the US Census Bureau.
-                <br/>
-                This microsite is produced by <a target="_blank" href="http://realsmart.io">Realsmart</a>, a leader in location intelligence.
-                <br/>
-                <br/>
-                Yes! We can help with bulk location intelligence processing.  Contact us at <a target="_blank" href="http://realsmart.io/">realsmart.io</a>.
-                <br/>
-                For other examples of our work, check out <a target="_blank" href="http://cartoscope.io/">cartoscope.io</a>.
-              </p>
-              <br />
-            </div>
-          </div>
-        </div>
+
+
       </div>
 
       <script src="gerrymander.js" class="hidden-print"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.72.0/aws-sdk.js"></script>
       <script src="s3.js"></script>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-101170348-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
     </body>
 
 

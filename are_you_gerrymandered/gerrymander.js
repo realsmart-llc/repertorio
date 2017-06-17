@@ -1,5 +1,6 @@
 $("#blue-div").hide();
 $("#spinner").hide()
+$("#social-share").hide()
 $("#what-is-this").click(function(){
     $("#blue-div").toggle();
 });
@@ -120,7 +121,7 @@ autocomplete.addListener('place_changed', function() {
          }
     }
   }
-  // ga('send','event','report','requested')
+  ga('send','event','report','requested')
 
   $.post("https://2ki6gggaqc.execute-api.us-east-1.amazonaws.com/dev", JSON.stringify(reportSpecification), (result) => {
     $("#spinner").hide()
@@ -128,7 +129,7 @@ autocomplete.addListener('place_changed', function() {
     processTableObject(result)
     processGScoreObject(result);
 
-    // ga('send','event','report','generated')
+    ga('send','event','report','generated')
 
   },"json")
 })

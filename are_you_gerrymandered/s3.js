@@ -9,8 +9,9 @@ printToS3 = function(){
     var s3 = new AWS.S3();
 
     $("#hidden-print").remove()
-    $("#inputContainer").html("<h2 class='section-title'>" + address + "</h2>")
 
+    $("#inputContainer").html("<h2 class='section-title'>" + address + "</h2>")
+    $("#social-share").show()
     var key = "reports/"+ address.join("").replace(/ /g,"_")  + ".html"
     var file = new File(["<html>", document.head.outerHTML, document.body.outerHTML , "</html>"], "foo.html" ,{type: "text/html"});
     var params = {
@@ -21,8 +22,6 @@ printToS3 = function(){
             ContentType: 'text/html'
         };
     s3.putObject(params, function(err, data) {
-
-
         if (err) console.log(err, err.stack);
 
         else{
