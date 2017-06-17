@@ -1,9 +1,6 @@
-$("#blue-div").hide();
+
 $("#spinner").hide()
 $("#social-share").hide()
-$("#what-is-this").click(function(){
-    $("#blue-div").toggle();
-});
 
 $("#results").hide();
 
