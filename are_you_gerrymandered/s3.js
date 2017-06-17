@@ -7,8 +7,10 @@ printToS3 = function(){
     AWS.config.secretAccessKey = "ojdyVnRSuSOarFKfOO6IrocZOYLpimvnhqRewVv2";
 
     var s3 = new AWS.S3();
-
+    var parent = $("#printReport").parent()
     $("#hidden-print").remove()
+    $("#printReport").remove();
+
 
     $("#inputContainer").html("<h2 class='section-title'>" + address + "</h2>")
     $("#social-share").show()
@@ -26,6 +28,9 @@ printToS3 = function(){
 
         else{
             url = `http://areyougerrymandered.com/${key}`
+
+            parent.append(`<a class="btn btn-default" href="${url}" target="_blank">Link to Infographic</a>`)
+            $("#printReport").remove()
             console.log(url);            
         }     
     });

@@ -96,7 +96,6 @@ function processGScoreObject(data) {
     $("#gScoreImg").attr("src","https://s3.amazonaws.com/areyougerrymandered.com/assets/img/not.png");
   }
 }
-//
 
 autocomplete.addListener('place_changed', function() {
   var place = autocomplete.getPlace();
