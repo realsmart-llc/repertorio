@@ -32,7 +32,22 @@
             <h1 class="section-title"><img height="50"; src="https://s3.amazonaws.com/areyougerrymandered.com/assets/img/nc.png" /> North Carolina Edition</h1>
           </div>
         </div>
+        <div class="row hidden-print">
+          <div class="col-md-4 col-md-offset-4" id="social-share">
+            <h5 class="section-title">Share this report</h5>
+            <ul class="share-buttons">
+                <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
 
+                <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+
+                <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fcartoscope.io&title=&summary=&source=http%3A%2F%2Fcartoscope.io" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
+
+                <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-3x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
+            </ul>
+            <!--<button id="printReport" class="btn btn-gerrymander" onclick="printReport()">Print</button>-->
+
+          </div>
+        </div>
         <div class="row vertical-row-padding">
           <div class="col-md-6 col-md-offset-3">
             <div id="inputContainer" class="text-center">
@@ -99,22 +114,7 @@
                 </table>
               </div>
             </div>
-            <div class="row hidden-print">
-              <div class="col-md-4 col-md-offset-4" id="social-share">
-                <h5 class="section-title">Share this report</h5>
-                <ul class="share-buttons">
-                   <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
 
-                   <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
-
-                    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fcartoscope.io&title=&summary=&source=http%3A%2F%2Fcartoscope.io" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
-
-                    <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-3x" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
-                </ul>
-                <!--<button id="printReport" class="btn btn-gerrymander" onclick="printReport()">Print</button>-->
-
-              </div>
-            </div>
             <div class="row hidden-print">
               <div class="col-md-12 text-center">
                 <br />
