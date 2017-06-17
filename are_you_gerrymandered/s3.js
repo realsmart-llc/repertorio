@@ -11,10 +11,22 @@ printToS3 = function(){
     $("#printReport").remove();
 
     $("#inputContainer").html("<h2 class='report-title'>" + address + "</h2>")
-    $("#social-share").show()
     var key = "reports/"+ address.join("").replace(/ /g,"_")  + ".html"
     ga('send', 'event', "interaction", "print_report", "key", key);
     
+
+    $("head").append(`<meta property="og:url" content="http://areyougerrymandered.com/${key}">`)
+
+    $("#social-share").show()
+    $(".share-buttons").html(`
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://areyougerrymandered.com/${key}" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+
+        <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fareyougerrymandered.com&text=:%20http%3A%2F%2Faareyougerrymandered.com&via=realsmartllc" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+
+    `)
+    
+
+
     var file = new File(["<html>", document.head.outerHTML, document.body.outerHTML , "</html>"], "foo.html" ,{type: "text/html"});
     $("#social-share").hide()
     var params = {
@@ -32,6 +44,8 @@ printToS3 = function(){
 
             parent.append(`<a class="btn btn-share" href="${url}" target="_blank">Link to Infographic</a>`)
             $("#printReport").remove()
+            
+            
             console.log(url);
         }
     });
