@@ -5,7 +5,7 @@ body {
 }
 
 .white-div {
-  padding: 5%;
+  padding: 2%;
   margin: 2%;
   background: url("https://s3.amazonaws.com/areyougerrymandered.com/assets/img/vertical-waves.png");
   background-color: #ffffff;
@@ -19,7 +19,7 @@ body {
 
 .title-row {
   padding-top: 3%;
-  padding-bottom: 2%;
+  /*padding-bottom: 2%;*/
 }
 
 .vertical-row-padding {
