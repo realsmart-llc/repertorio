@@ -1,9 +1,9 @@
-
+AWS.config.region = "us-east-1";
+AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+    IdentityPoolId: 'us-east-1:4310d42d-bd30-442e-a3d9-274fb8112285',
+});
 
 printToS3 = function(){
-    AWS.config = new AWS.Config();
-    AWS.config.accessKeyId = "AKIAIYU2KUUXRQHSVHSA";
-    AWS.config.secretAccessKey = "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";
 
     var s3 = new AWS.S3();
     var parent = $("#printReport").parent()
@@ -33,7 +33,7 @@ printToS3 = function(){
             Bucket: "areyougerrymandered.com",
             Key: key,
             Body: file,
-            // ACL: 'public-read',
+            ACL: 'public-read',
             ContentType: 'text/html'
         };
     s3.putObject(params, function(err, data) {
