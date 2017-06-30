@@ -92,8 +92,8 @@ if(radius > 15000){
 }else if(radius > 1000){
   zoomLevel = 13;
 }
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 }).addTo(map);
 if(type == "Point"){
   var marker = L.marker([coordinates[1], coordinates[0]]).addTo(map);
