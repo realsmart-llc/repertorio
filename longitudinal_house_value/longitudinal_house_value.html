@@ -13,93 +13,106 @@
   <script type="text/javascript" src="fixture_data.js"></script>
 </head>
 
-<div class="container container-print">
-  <div class="row vertical-row-padding">
-    <div class="promo col-sm-6 hidden-print pull-right">
-      <p class="description-dark">Make more reports at <a href="http://cartoscope.io/" target="_blank">cartoscope.io</a></p>
-    </div>
-    <div class="promo col-print-5 col-print-offset-6 visible-print-inline">
-      <p class="description-dark share-this-report">Make more reports at cartoscope.io </p>
-    </div>
-    <div class="col-sm-8 col-sm-offset-2 col-print-12">
-      <h1 class="report-page-title underline-top-left">Longitudinal House Value Report</h1>
-      <div id="point">
-        <h1 class="report-page-address underline underline-bottom-right">
-          <span class="report-page-address" id="radius">2</span> mile radius |
-          <span class="address report-page-address"></span>
-        </h1>
-      </div>
-      <div id="polygon">
-        <h3 class="report-page-address">
-          <span class="address report-page-address"></span>
-        </h3>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="promo col-sm-3 col-sm-offset-9 hidden-print pull-right">
+        <p class="description-dark">Make more reports at <a href="http://cartoscope.io/" target="_blank">cartoscope.io</a></p>
       </div>
     </div>
-    <div class="col-sm-2 hidden-print">
-      <h5 class="description-dark share-this-report">Share this report</h5>
-      <ul class="share-buttons">
-         <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+    <div class="row">
+      <div class="col-sm-2 col-sm-offset-10 hidden-print">
+        <!-- <h5 class="description-dark">Share this report</h5> -->
+        <br />
+        <ul class="share-buttons">
+           <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
 
-         <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+           <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
 
-          <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fcartoscope.io&title=&summary=&source=http%3A%2F%2Fcartoscope.io" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
+            <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fcartoscope.io&title=&summary=&source=http%3A%2F%2Fcartoscope.io" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on LinkedIn</span></a></li>
 
-          <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-lg" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
-      </ul>
-      <button class="btn btn-cs-blue hidden-print" onclick="printReport()">Print this Report</button>
+            <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fcartoscope.io" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-lg" aria-hidden="true"></i><span class="sr-only">Send email</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2 col-sm-offset-10 hidden-print">
+        <button class="btn btn-cs-blue hidden-print" onclick="printReport()">Print this Report</button>
+      </div>
     </div>
   </div>
-  <div class="row vertical-row-padding">
-    <div class="col-sm-8 col-sm-offset-2">
-      <p class="report-text">
-        This report shows the median house value of owner-occupied homes across time.
-        The graph shows the median values adjusted for inflation to 2017. The table shows the percent change between each data point.
-      </p>
+  <div class="container container-print">
+    <div class="row vertical-row-padding">
+      <div class="promo col-print-5 col-print-offset-6 visible-print-inline">
+        <p class="description-dark share-this-report">Make more reports at cartoscope.io </p>
+      </div>
+      <div class="col-sm-8 col-sm-offset-2 col-print-12">
+        <h1 class="report-page-title underline-top-left">Age and Education Report</h1>
+        <div id="point">
+          <h1 class="report-page-address underline underline-bottom-right">
+            <span class="report-page-address" id="radius">2</span> mile radius |
+            <span class="address report-page-address"></span>
+          </h1>
+        </div>
+        <div id="polygon">
+          <h3 class="report-page-address">
+            <span class="address report-page-address"></span>
+          </h3>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row vertical-row-padding">
-    <div class="col-sm-6 col-md-4 col-md-offset-2 col-print-8">
-      <div id="chart"></div>
+    <div class="row vertical-row-padding">
+      <div class="col-sm-8 col-sm-offset-2">
+        <p class="report-text">
+          This report shows the median house value of owner-occupied homes across time.
+          The graph shows the median values adjusted for inflation to 2017. The table shows the percent change between each data point.
+        </p>
+      </div>
     </div>
-    <div class="col-sm-3 col-sm-offset-1 col-print-4">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>% Change</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>'90 - '95</td>
-            <td id="90to95">12345</td>
-          </tr>
-          <tr>
-            <td>'95 - '00</td>
-            <td id="95to00">12345</td>
-          </tr>
-          <tr>
-            <td>'00 - '05</td>
-            <td id="00to05">12345</td>
-          </tr>
-          <tr>
-            <td>'05 - '10</td>
-            <td id="05to10">12345</td>
-          </tr>
-          <tr>
-            <td>'10 - '15</td>
-            <td id="10to15">12345</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="row vertical-row-padding">
+      <div class="col-sm-6 col-md-4 col-md-offset-2 col-print-8">
+        <div id="chart"></div>
+      </div>
+      <div class="col-sm-3 col-sm-offset-1 col-print-4">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>% Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>'90 - '95</td>
+              <td id="90to95">12345</td>
+            </tr>
+            <tr>
+              <td>'95 - '00</td>
+              <td id="95to00">12345</td>
+            </tr>
+            <tr>
+              <td>'00 - '05</td>
+              <td id="00to05">12345</td>
+            </tr>
+            <tr>
+              <td>'05 - '10</td>
+              <td id="05to10">12345</td>
+            </tr>
+            <tr>
+              <td>'10 - '15</td>
+              <td id="10to15">12345</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  <div class="row vertical-row-padding">
-    <div class="col-sm-6 col-md-6 col-md-offset-2">
-      <div id="map" class="map map-home" style="height: 200px;"></div>
+    <div class="row vertical-row-padding">
+      <div class="col-sm-6 col-md-6 col-md-offset-2">
+        <div id="map" class="map map-home" style="height: 200px;"></div>
+      </div>
     </div>
-  </div>
-  <br />
+    <br />
 
-  <script type="text/javascript" src="longitudinal_house_value.js"></script>
-</div>
+    <script type="text/javascript" src="longitudinal_house_value.js"></script>
+  </div>
+</body>
