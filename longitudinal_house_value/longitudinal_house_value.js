@@ -15,6 +15,7 @@ var address = data["reportSpecification"]["geoJSON"]["properties"]["address"];
 var coordinates = data["reportSpecification"]["geoJSON"]["geometry"]["coordinates"];
 var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
+$("title").html(`Longitudinal House Value Report for ${address}`);
 $(".address").html(address);
 if(data.type == "polygon"){
   $("#point").hide();
