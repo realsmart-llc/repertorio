@@ -169,10 +169,12 @@ $("title").html(`General Demographic Report for ${address}`);
 $(".address").html(address);
 
 
-if(data.type == "polygon"){
-  $(".mile-radius-text").hide();
+if(type == "polygon"){
+  console.log(1)
+  // $(".mile-radius-text").hide();
 }
 else {
+  console.log(1)
 }
 
 if(data.type == "polygon"){
