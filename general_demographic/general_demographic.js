@@ -168,6 +168,12 @@ $("title").html(`General Demographic Report for ${address}`);
 $(".address").html(address);
 var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
+if(type == "polygon"){
+  $(".mile-radius-text").hide();
+}
+else {
+}
+
 if(data.type == "polygon"){
   $("#point").hide();
 }else{
