@@ -33,6 +33,7 @@ window.printReport = function(){
 var type = data["reportSpecification"]["geoJSON"]["geometry"]["type"];
 var address = data["reportSpecification"]["geoJSON"]["properties"]["address"];
 var coordinates = data["reportSpecification"]["geoJSON"]["geometry"]["coordinates"];
+var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
 var chart1 = c3.generate({
   bindto: '#chart1',
@@ -166,9 +167,9 @@ var chart5 = c3.generate({
 //
 $("title").html(`General Demographic Report for ${address}`);
 $(".address").html(address);
-var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
-if(type == "polygon"){
+
+if(data.type == "polygon"){
   $(".mile-radius-text").hide();
 }
 else {
