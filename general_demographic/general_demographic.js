@@ -164,7 +164,7 @@ var chart5 = c3.generate({
 });
 
 //
-$("title").html(`General Demographic Report for ${data["address"]}`);
+$("title").html(`General Demographic Report for ${address}`);
 $(".address").html(address);
 var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
