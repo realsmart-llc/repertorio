@@ -17,7 +17,14 @@ var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
 $("title").html(`Longitudinal Median Income Report for ${address}`);
 $(".address").html(address);
-if(data.type == "polygon"){
+
+if(type == "Polygon"){
+  $(".mile-radius-text").hide();
+}
+else {
+}
+
+if(data.type == "Polygon"){
   $("#point").hide();
 }else{
   $("#radius").html(Math.floor(radius/1600));

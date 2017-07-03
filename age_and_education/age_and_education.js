@@ -17,6 +17,7 @@ window.printReport = function(){
 var type = data["reportSpecification"]["geoJSON"]["geometry"]["type"];
 var address = data["reportSpecification"]["geoJSON"]["properties"]["address"];
 var coordinates = data["reportSpecification"]["geoJSON"]["geometry"]["coordinates"];
+var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
 var array = []
 for(var key in data["age"]["male"]){
@@ -73,12 +74,16 @@ var chart2 = c3.generate({
   }
 });
 
-
 $("title").html(`Age and Education Report for ${address}`);
 $(".address").html(address);
-var radius = data["reportSpecification"]["geoJSON"]["geometry"]["radius"];
 
-if(data.type == "polygon"){
+if(type == "Polygon"){
+  $(".mile-radius-text").hide();
+}
+else {
+}
+
+if(data.type == "Polygon"){
   $("#point").hide();
 }else{
   $("#radius").html(Math.floor(radius/1600));

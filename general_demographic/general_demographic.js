@@ -168,16 +168,13 @@ var chart5 = c3.generate({
 $("title").html(`General Demographic Report for ${address}`);
 $(".address").html(address);
 
-
-if(type == "polygon"){
-  console.log(1)
-  // $(".mile-radius-text").hide();
+if(type == "Polygon"){
+  $(".mile-radius-text").hide();
 }
 else {
-  console.log(1)
 }
 
-if(data.type == "polygon"){
+if(data.type == "Polygon"){
   $("#point").hide();
 }else{
   $("#radius").html(Math.floor(radius/1600));
