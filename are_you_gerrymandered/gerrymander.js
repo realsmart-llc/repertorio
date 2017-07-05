@@ -106,19 +106,22 @@ autocomplete.addListener('place_changed', function() {
   var coordinates = [place.geometry.location.lng(), place.geometry.location.lat()]
   address = place["formatted_address"].split(",");
   ga('send', 'event', "interaction", "place_changed", "address", address);
-  
+
   var reportSpecification = {
-    reportName: "gerrymander",
+    "reportType": {
+      name: "gerrymander",
+      slug: "gerrymander"
+    },
     geoJSON: {
-        type: "Feature",
-        geometry: {
-            coordinates: coordinates,
-            radius: 800,
-            type: "Point"
-        },
-        properties: {
-          "address" : address
-         }
+      type: "Feature",
+      geometry: {
+          coordinates: coordinates,
+          radius: 800,
+          type: "Point"
+      },
+      properties: {
+        "address" : address
+       }
     }
   }
 
