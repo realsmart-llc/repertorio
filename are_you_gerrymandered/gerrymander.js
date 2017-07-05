@@ -108,7 +108,7 @@ autocomplete.addListener('place_changed', function() {
   ga('send', 'event', "interaction", "place_changed", "address", address);
 
   var reportSpecification = {
-    "reportType": {
+    reportType: {
       name: "gerrymander",
       slug: "gerrymander"
     },
