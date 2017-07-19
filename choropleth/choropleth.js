@@ -5,22 +5,20 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 L.geoJson(incomeData).addTo(map);
 
 
-// var medianIcomeNumber = feature.properties.median
-
-function getColor(m) {
-    if ( m < 20000) {
+function getColor(number) {
+    if ( number < incomeData.properties.categories[0]) {
       return '#800026'
     }
-    else if (m < 40000) {
+    else if (number < incomeData.properties.categories[1]) {
       return '#BD0026'
     }
-    else if (m < 70000) {
+    else if (number < incomeData.properties.categories[2]) {
       return '#E31A1C'
     }
-    else if (m < 100000) {
+    else if (number < incomeData.properties.categories[3]) {
       return '#FC4E2A'
     }
-    else  if (m < 99999999) {
+    else  if (number < incomeData.properties.categories[4]) {
       return '#FD8D3C'
     }
     else {
