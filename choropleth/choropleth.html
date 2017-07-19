@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+  <HTML>
+    <head>
+      <title></title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.js"></script>
+      <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+      <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/print.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://s3.amazonaws.com/cartoscope-assets/report-styles/reports.css" rel="stylesheet">
+      <script type="text/javascript" src="fixture_data.js"></script>
+
+      <style>
+    		#map {
+    			width: 100%;
+    			height: 600px;
+    		}
+
+    	</style>
+    </head>
+
+    <body>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-8 hidden-print">
+            <ul class="share-buttons">
+              <li class="description-dark">
+                Make more Infographics at <a href="http://cartoscope.io/" target="_blank">cartoscope.io </a> |
+              </li>
+
+              <li class="description-dark">
+                Share this Infographic
+              </li>
+               <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcartoscope.io&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+
+               <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fcartoscope.io&text=:%20http%3A%2F%2Facartoscope.io&via=cartoscopic" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '%20' +'@cartoscopic ' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2 col-sm-offset-10 hidden-print">
+            <button class="btn btn-cs-blue hidden-print" onclick="printReport()">Print this Infographic</button>
+          </div>
+        </div>
+      </div>
+      <div class="container container-print">
+        <div class="row vertical-row-padding">
+          <div class="promo col-print-5 col-print-offset-6 visible-print-inline">
+            <p class="description-dark share-this-report">Make more Infographics at cartoscope.io </p>
+          </div>
+          <div class="col-sm-8 col-sm-offset-3 col-print-12">
+            <h1 class="report-page-title underline-top-left">Median Income by Census Blocks</h1>
+            <div id="point">
+              <h1 class="report-page-address underline underline-bottom-right">
+                <span class="mile-radius-text"><span class="report-page-address" id="radius">2</span> mile radius | </span>
+                <span class="address report-page-address">204 Windrift Drive</span>
+              </h1>
+            </div>
+            <div id="polygon">
+              <h3 class="report-page-address">
+                <span class="address report-page-address"></span>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="row vertical-row-padding">
+          <div class="col-md-2 col-md-offset-1 col-print-3">
+            <p class="report-text"><i class="fa fa-square fa-lg block-1" aria-hidden="true"></i> Less Than $20,000 </p>
+          </div>
+          <div class="col-md-2 col-print-3">
+            <p class="report-text"><i class="fa fa-square fa-lg block-2" aria-hidden="true"></i> $20,000 to $40,001</p>
+          </div>
+          <div class="col-md-2 col-print-3">
+            <p class="report-text"><i class="fa fa-square fa-lg block-3" aria-hidden="true"></i> $40,000 to $70,000</p>
+          </div>
+          <div class="col-md-2 col-print-3">
+            <p class="report-text"><i class="fa fa-square fa-lg block-4" aria-hidden="true"></i> $70,001 to $100,000</p>
+          </div>
+          <div class="col-md-2 col-print-2">
+            <p class="report-text"><i class="fa fa-square fa-lg block-5" aria-hidden="true"></i> $100,000+</p>
+          </div>
+        </div>
+        <br />
+
+        <div class="row">
+          <div class="col-md-12 col-print-12">
+            <div id="map">
+
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <div class="row vertical-row-padding">
+          <div class="col-sm-12 col-print-12">
+            <p class="report-text text-center">
+              This infographic is produced using data from the <a href="https://www.census.gov/" target="_blank">US Census Bureau.</a> However, this website is not endorsed by the US Census Bureau.
+            </p>
+          </div>
+        </div>
+        <br />
+      </div>
+
+      <script type="text/javascript" src="choropleth.js"></script>
+
+    </body>
+  </HTML>
